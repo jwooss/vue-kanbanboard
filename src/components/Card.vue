@@ -32,7 +32,7 @@
         setTimeout(() => {
           this.loading = false;
           this.cid = this.$route.params.cid;
-        }, 3000)
+        }, 500)
       }
     },
   }

@@ -54,7 +54,7 @@
           })
           .catch(err => {
             // console.log(err);
-            this.error = `로그인 실패`;
+            this.error = err.data.error;
           })
       }
     }
@@ -70,8 +70,4 @@
   .error {
     color: #f00;
   }
-</style>
-
-<style scoped>
-
 </style>
