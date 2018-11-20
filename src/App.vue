@@ -9,9 +9,9 @@
   import Navbar from './components/Navbar'
 
   export default {
-    name      : 'app',
-    components: { Navbar },
-    data() {
+    name: 'app',
+    components: {Navbar},
+    data () {
       return {
         msg: 'Welcome to Your Vue.js App'
       }

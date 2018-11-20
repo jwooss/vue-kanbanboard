@@ -29,25 +29,25 @@
     components: {
       Modal
     },
-    data() {
+    data () {
       return {
         input: '',
         valid: false
       }
     },
-    watch     : {
-      input(v) {
+    watch: {
+      input (v) {
         this.valid = v.trim().length > 0
       }
     },
-    mounted() {
+    mounted () {
       this.$refs.input.focus()
     },
-    methods   : {
-      close() {
+    methods: {
+      close () {
         this.$emit('close')
       },
-      addBoard() {
+      addBoard () {
         this.$emit('close')
         this.$emit('submit', this.input)
       }

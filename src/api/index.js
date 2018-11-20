@@ -14,31 +14,30 @@ const request = (method, url, data) => {
     data
   }).then(result => result.data)
     .catch(result => {
-      const { status } = result.response;
-      if (status === UNAUTHORIZED) return onUnauthorized();
-      throw result.response;
+      const {status} = result.response
+      if (status === UNAUTHORIZED) return onUnauthorized()
+      throw result.response
     })
 }
 
 export const setAuthInHeader = token => {
-  axios.defaults.headers.common[ 'Authorization' ] = token ? `Bearer ${token}` : null;
+  axios.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : null
 }
 
 const {token} = localStorage
 if (token) setAuthInHeader(token)
 
-
 export const board = {
-  fetch() {
+  fetch () {
     return request('get', '/boards')
   },
-  create(title) {
-    return request('post', '/boards', {title});
+  create (title) {
+    return request('post', '/boards', {title})
   },
 }
 
 export const auth = {
-  login(email, password) {
-    return request('post', '/login', { email, password });
+  login (email, password) {
+    return request('post', '/login', {email, password})
   }
 }

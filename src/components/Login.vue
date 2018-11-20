@@ -45,7 +45,6 @@
         'SET_THEME'
       ]),*/
       onSubmit() {
-        const {email, password} = this;
         auth.login(this.email, this.password)
           .then(data => {
             localStorage.setItem('token', data.accessToken);

@@ -10,28 +10,28 @@
 
 <script>
   export default {
-    name   : "Card",
-    data() {
+    name: 'Card',
+    data () {
       return {
-        cid    : 0,
+        cid: 0,
         loading: false,
       }
     },
-    watch  : {
+    watch: {
       '$route': {
-        handler  : 'fetchData',
+        handler: 'fetchData',
         immediate: true,
       }
     },
-    created() {
-      this.fetchData();
+    created () {
+      this.fetchData()
     },
     methods: {
-      fetchData() {
-        this.loading = true;
+      fetchData () {
+        this.loading = true
         setTimeout(() => {
-          this.loading = false;
-          this.cid = this.$route.params.cid;
+          this.loading = false
+          this.cid = this.$route.params.cid
         }, 500)
       }
     },

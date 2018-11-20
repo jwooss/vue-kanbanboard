@@ -19,14 +19,14 @@
 </template>
 
 <script>
-  import {board} from './../api';
-  import AddBoard from './AddBoard';
+  import { board } from './../api'
+  import AddBoard from './AddBoard'
 
   export default {
     components: {
       AddBoard
     },
-    data() {
+    data () {
       return {
         loading: false,
         boards: [],
@@ -34,18 +34,18 @@
         error: '',
       }
     },
-    created() {
-      this.fetchData();
+    created () {
+      this.fetchData()
     },
-    updated() {
+    updated () {
       // data의 변화가 감지될 때
       this.$refs.boardItem.forEach(el => {
         el.style.backgroundColor = el.dataset.bgcolor
       })
     },
     methods: {
-      fetchData() {
-        this.loading = true;
+      fetchData () {
+        this.loading = true
         board.fetch()
           .then(data => {
             this.boards = data.list
@@ -54,15 +54,15 @@
             this.loading = false
           })
       },
-      addBoard() {
-        this.isAddBoard = true;
+      addBoard () {
+        this.isAddBoard = true
       },
-      onAddBoard(title) {
+      onAddBoard (title) {
         board.create(title)
           .then(() => this.fetchData())
       },
     },
-    name: "Home"
+    name: 'Home'
   }
 </script>
 

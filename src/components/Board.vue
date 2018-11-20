@@ -14,25 +14,25 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
         bid: 0,
         loading: false
       }
     },
-    created() {
-      this.fetchData();
+    created () {
+      this.fetchData()
     },
     methods: {
-      fetchData() {
-        this.loading = true;
+      fetchData () {
+        this.loading = true
         setTimeout(() => {
-          this.bid = this.$route.params.bid;
-          this.loading = false;
+          this.bid = this.$route.params.bid
+          this.loading = false
         }, 5000)
       },
     },
-    name: "Board"
+    name: 'Board'
   }
 </script>
 

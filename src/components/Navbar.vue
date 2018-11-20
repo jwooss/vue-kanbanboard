@@ -12,19 +12,19 @@
 </template>
 
 <script>
-  import {setAuthInHeader} from "../api";
+  import { setAuthInHeader } from '../api'
 
   export default {
     computed: {
-      isAuth() {
+      isAuth () {
         return !!localStorage.getItem('token')
       }
     },
-    methods : {
-      logout() {
+    methods: {
+      logout () {
         delete localStorage.token
-        setAuthInHeader(null);
-        this.$router.push('/login');
+        setAuthInHeader(null)
+        this.$router.push('/login')
       }
     }
   }
