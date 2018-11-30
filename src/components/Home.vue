@@ -30,8 +30,12 @@
       return {
         loading: false,
         boards: [],
-        isAddBoard: false,
         error: '',
+      }
+    },
+    computed: {
+      isAddBoard() {
+        return this.$store.state.isAddBoard
       }
     },
     created () {
