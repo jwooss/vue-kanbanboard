@@ -22,6 +22,7 @@
   import { board } from './../api'
   import AddBoard from './AddBoard'
   import { mapState, mapMutations } from 'vuex'
+  import api from '../api'
 
   export default {
     components: {
@@ -62,9 +63,9 @@
             this.loading = false
           })
       },
-      onAddBoard (title) {
-        board.create(title)
-          .then(() => this.fetchData())
+      onAddBoard () {
+        console.log('asdas')
+        this.fetchData()
       },
     },
     name: 'Home'
