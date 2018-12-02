@@ -4,8 +4,11 @@ const mutations = {
   SET_IS_ADD_BOARD (state, toggle) {
     state.isAddBoard = toggle
   },
-  SET_BOARDS (state, board) {
-    state.boards = board
+  SET_BOARDS (state, boards) {
+    state.boards = boards
+  },
+  SET_BOARD (state, board) {
+    state.board = board
   },
   LOGIN (state, token) {
     if (!token) return
