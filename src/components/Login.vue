@@ -19,10 +19,11 @@
 
 <script>
   //import {mapMutations} from 'vuex'
-  import {auth, setAuthInHeader} from '../api';
+  import { auth, setAuthInHeader } from '../api'
+  import { mapActions } from 'vuex'
 
   export default {
-    data() {
+    data () {
       return {
         email: '',
         password: '',
@@ -31,29 +32,29 @@
       }
     },
     computed: {
-      invalidForm() {
+      invalidForm () {
         return !this.email || !this.password
       }
     },
-    created() {
-      this.rPath = this.$route.query.rPath || '/';
+    created () {
+      this.rPath = this.$route.query.rPath || '/'
     },
-    mounted() {
+    mounted () {
     },
     methods: {
       /*...mapMutations([
         'SET_THEME'
       ]),*/
-      onSubmit() {
-        auth.login(this.email, this.password)
+      ...mapActions([
+        'LOGIN'
+      ]),
+      onSubmit () {
+        this.LOGIN({ email: this.email, password: this.password })
           .then(data => {
-            localStorage.setItem('token', data.accessToken);
-            setAuthInHeader(data.accessToken);
-            this.$router.push(this.rPath);
+            this.$router.push(this.rPath)
           })
           .catch(err => {
-            // console.log(err);
-            this.error = err.data.error;
+            this.error = err.data.error
           })
       }
     }
