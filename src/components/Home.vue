@@ -19,10 +19,8 @@
 </template>
 
 <script>
-  import { board } from './../api'
   import AddBoard from './AddBoard'
   import { mapState, mapMutations, mapActions } from 'vuex'
-  import api from '../api'
 
   export default {
     components: {
@@ -31,14 +29,14 @@
     data () {
       return {
         loading: false,
-        error: '',
+        error: ''
       }
     },
     computed: {
       ...mapState({
         isAddBoard: 'isAddBoard',
         boards: 'boards'
-      }),
+      })
     },
     created () {
       this.fetchData()

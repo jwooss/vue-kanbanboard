@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import {mapMutations, mapGetters} from 'vuex'
+  import { mapMutations, mapGetters } from 'vuex'
 
   export default {
     computed: {

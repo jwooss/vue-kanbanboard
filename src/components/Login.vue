@@ -18,8 +18,6 @@
 </template>
 
 <script>
-  //import {mapMutations} from 'vuex'
-  import { auth, setAuthInHeader } from '../api'
   import { mapActions } from 'vuex'
 
   export default {
@@ -42,9 +40,6 @@
     mounted () {
     },
     methods: {
-      /*...mapMutations([
-        'SET_THEME'
-      ]),*/
       ...mapActions([
         'LOGIN'
       ]),

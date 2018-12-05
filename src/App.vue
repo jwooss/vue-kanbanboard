@@ -10,7 +10,7 @@
 
   export default {
     name: 'app',
-    components: {Navbar},
+    components: { Navbar },
     data () {
       return {
         msg: 'Welcome to Your Vue.js App'

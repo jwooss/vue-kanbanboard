@@ -1,9 +1,11 @@
 <template>
   <div>
     Card
-    <div v-if="loading">loading card...</div>
+    <div v-if="loading">
+      loading card...
+    </div>
     <div v-else>
-      cid:{{cid}}
+      cid:{{ cid }}
     </div>
   </div>
 </template>
@@ -14,7 +16,7 @@
     data () {
       return {
         cid: 0,
-        loading: false,
+        loading: false
       }
     },
     watch: {

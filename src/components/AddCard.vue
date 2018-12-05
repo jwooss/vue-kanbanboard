@@ -9,16 +9,14 @@
 </template>
 
 <script>
-  import { mapState, mapMutations, mapActions } from 'vuex'
-
   export default {
     data () {
       return {
-        inputTitle:''
+        inputTitle: ''
       }
     },
     computed: {
-      invalidInput() {
+      invalidInput () {
         return !this.inputTitle.trim()
       }
     },
@@ -27,12 +25,12 @@
       this.setupClickOutside(this.$el)
     },
     methods: {
-      onSubmit() {
+      onSubmit () {
         console.log('submit')
       },
-      setupClickOutside(el){
-        document.querySelector('body').addEventListener('click', e=> {
-          if(el.contains(e.target)) return
+      setupClickOutside (el) {
+        document.querySelector('body').addEventListener('click', e => {
+          if (el.contains(e.target)) return
           this.$emit('close')
         })
       }
