@@ -16,12 +16,11 @@ module.exports = {
           'vue-style-loader',
           'css-loader'
         ],
-      },      {
+      }, {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: {
-          }
+          loaders: {}
           // other vue-loader options go here
         }
       },
@@ -36,7 +35,13 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
+      }, {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/
       }
+
     ]
   },
   resolve: {
