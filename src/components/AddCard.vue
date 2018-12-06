@@ -12,13 +12,13 @@
   export default {
     data () {
       return {
-        inputTitle: ''
+        inputTitle: '',
       }
     },
     computed: {
       invalidInput () {
         return !this.inputTitle.trim()
-      }
+      },
     },
     mounted () {
       this.$refs.inputText.focus()
@@ -33,8 +33,8 @@
           if (el.contains(e.target)) return
           this.$emit('close')
         })
-      }
-    }
+      },
+    },
   }
 </script>
 

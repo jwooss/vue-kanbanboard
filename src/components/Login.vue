@@ -26,13 +26,13 @@
         email: '',
         password: '',
         rPath: '',
-        error: ''
+        error: '',
       }
     },
     computed: {
       invalidForm () {
         return !this.email || !this.password
-      }
+      },
     },
     created () {
       this.rPath = this.$route.query.rPath || '/'
@@ -41,7 +41,7 @@
     },
     methods: {
       ...mapActions([
-        'LOGIN'
+        'LOGIN',
       ]),
       onSubmit () {
         this.LOGIN({ email: this.email, password: this.password })
@@ -51,8 +51,8 @@
           .catch(err => {
             this.error = err.data.error
           })
-      }
-    }
+      },
+    },
   }
 </script>
 

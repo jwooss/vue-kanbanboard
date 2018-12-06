@@ -24,19 +24,19 @@
 
   export default {
     components: {
-      AddBoard
+      AddBoard,
     },
     data () {
       return {
         loading: false,
-        error: ''
+        error: '',
       }
     },
     computed: {
       ...mapState({
         isAddBoard: 'isAddBoard',
-        boards: 'boards'
-      })
+        boards: 'boards',
+      }),
     },
     created () {
       this.fetchData()
@@ -49,10 +49,10 @@
     },
     methods: {
       ...mapMutations([
-        'SET_IS_ADD_BOARD'
+        'SET_IS_ADD_BOARD',
       ]),
       ...mapActions([
-        'FETCH_BOARDS'
+        'FETCH_BOARDS',
       ]),
       fetchData () {
         this.loading = true
@@ -61,7 +61,7 @@
         })
       },
     },
-    name: 'Home'
+    name: 'Home',
   }
 </script>
 

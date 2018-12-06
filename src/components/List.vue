@@ -22,9 +22,9 @@
     props: ['data'],
     data () {
       return {
-        isAddCard: false
+        isAddCard: false,
       }
-    }
+    },
   }
 </script>
 

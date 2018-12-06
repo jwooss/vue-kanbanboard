@@ -23,12 +23,12 @@
 
   export default {
     components: {
-      List
+      List,
     },
     data () {
       return {
         bid: 0,
-        loading: false
+        loading: false,
       }
     },
     created () {
@@ -36,20 +36,20 @@
     },
     computed: {
       ...mapState({
-        board: 'board'
-      })
+        board: 'board',
+      }),
     },
     methods: {
       ...mapActions([
-        'FETCH_BOARD'
+        'FETCH_BOARD',
       ]),
       fetchData () {
         this.loading = true
         this.FETCH_BOARD({ id: this.$route.params.bid })
-          .then(() => this.loading = false)
+          .then(() => (this.loading = false))
       },
     },
-    name: 'Board'
+    name: 'Board',
   }
 </script>
 

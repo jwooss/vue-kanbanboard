@@ -11,10 +11,10 @@ const request = (method, url, data) => {
   return axios({
     method,
     url: Domain + url,
-    data
+    data,
   }).then(result => result.data)
     .catch(result => {
-      const {status} = result.response
+      const { status } = result.response
       if (status === UNAUTHORIZED) return onUnauthorized()
       throw result.response
     })
@@ -29,12 +29,12 @@ export const board = {
     return id ? request('get', `/boards/${id}`) : request('get', '/boards')
   },
   create (title) {
-    return request('post', '/boards', {title})
+    return request('post', '/boards', { title })
   },
 }
 
 export const auth = {
   login (email, password) {
-    return request('post', '/login', {email, password})
-  }
+    return request('post', '/login', { email, password })
+  },
 }

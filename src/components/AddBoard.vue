@@ -28,36 +28,36 @@
 
   export default {
     components: {
-      Modal
+      Modal,
     },
     data () {
       return {
         input: '',
-        valid: false
+        valid: false,
       }
     },
     watch: {
       input (v) {
         this.valid = v.trim().length > 0
-      }
+      },
     },
     mounted () {
       this.$refs.input.focus()
     },
     methods: {
       ...mapMutations([
-        'SET_IS_ADD_BOARD'
+        'SET_IS_ADD_BOARD',
       ]),
       ...mapActions([
         'ADD_BOARD',
-        'FETCH_BOARDS'
+        'FETCH_BOARDS',
       ]),
       addBoard () {
         this.SET_IS_ADD_BOARD(false)
         this.ADD_BOARD({ title: this.input })
           .then(({ id }) => this.$router.push(`/b/${id}`))
-      }
-    }
+      },
+    },
   }
 </script>
 

@@ -16,14 +16,14 @@
     data () {
       return {
         cid: 0,
-        loading: false
+        loading: false,
       }
     },
     watch: {
       '$route': {
         handler: 'fetchData',
         immediate: true,
-      }
+      },
     },
     created () {
       this.fetchData()
@@ -35,7 +35,7 @@
           this.loading = false
           this.cid = this.$route.params.cid
         }, 500)
-      }
+      },
     },
   }
 </script>

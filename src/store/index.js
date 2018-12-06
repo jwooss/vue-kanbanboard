@@ -7,12 +7,14 @@ import mutations from './mutations'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
-  state,
-  getters,
-  mutations,
-  actions
-})
+const store = new Vuex.Store(
+  {
+    state,
+    getters,
+    mutations,
+    actions,
+  }
+)
 
 const { token } = localStorage
 store.commit('LOGIN', token)

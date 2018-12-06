@@ -20,10 +20,10 @@ const router = new VueRouter({
     {
       path: '/',
       component: Home,
-      beforeEnter: requireAuth
+      beforeEnter: requireAuth,
     },
     {
-      path: '/login', component: Login
+      path: '/login', component: Login,
     },
     {
       path: '/b/:bid',
@@ -31,12 +31,12 @@ const router = new VueRouter({
       beforeEnter: requireAuth,
       children: [
         { path: 'c/:cid', component: Card, beforeEnter: requireAuth },
-      ]
+      ],
     },
     {
-      path: '*', component: NotFound
-    }
-  ]
+      path: '*', component: NotFound,
+    },
+  ],
 })
 
 export default router

@@ -17,18 +17,18 @@
   export default {
     computed: {
       ...mapGetters([
-        'isAuth'
-      ])
+        'isAuth',
+      ]),
     },
     methods: {
       ...mapMutations([
-        'LOGOUT'
+        'LOGOUT',
       ]),
       logout () {
         this.LOGOUT()
         this.$router.push('/login')
-      }
-    }
+      },
+    },
   }
 </script>
 

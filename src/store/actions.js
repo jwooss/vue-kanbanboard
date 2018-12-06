@@ -18,7 +18,7 @@ const actions = {
     console.log(email, password)
     return api.auth.login(email, password)
       .then(({ accessToken }) => commit('LOGIN', accessToken))
-  }
+  },
 }
 
 export default actions
