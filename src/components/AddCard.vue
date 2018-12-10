@@ -32,7 +32,6 @@
         'ADD_CARD',
       ]),
       onSubmit () {
-        console.log('submit')
         if (this.invalidInput) return
         const { inputTitle, listId } = this
         this.ADD_CARD({ title: inputTitle, listId })
