@@ -46,4 +46,10 @@ export const card = {
   fetch (id) {
     return request('get', `/cards/${id}`)
   },
+  update (id, data) {
+    return request('put', `/cards/${id}`, data).then(({ data }) => data)
+  },
+  destroy (id) {
+    return request('delete', `/cards/${id}`)
+  },
 }

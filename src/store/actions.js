@@ -27,6 +27,10 @@ const actions = {
       commit('SET_CARD', data.item)
     })
   },
+  UPDATE_CARD ({ state, dispatch }, { id, pos, title, description, listId }) {
+    return api.card.update(id, { pos, title, description, listId })
+      .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
+  },
 }
 
 export default actions
