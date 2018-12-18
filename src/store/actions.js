@@ -27,6 +27,9 @@ const actions = {
       commit('SET_CARD', data.item)
     })
   },
+  DELETE_BOARD (_, { id }) {
+    return api.board.destroy(id)
+  },
   UPDATE_CARD ({ state, dispatch }, { id, pos, title, description, listId }) {
     return api.card.update(id, { pos, title, description, listId })
       .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
