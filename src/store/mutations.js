@@ -28,6 +28,9 @@ const mutations = {
     state.bodyColor = color || '#ffffff'
     state.navbarColor = color ? 'rgba(0,0,0,.15)' : '#026aa7'
   },
+  SET_IS_SHOW_BOARD_MENU (state, toogle) {
+    state.isShowBoardSettings = toogle
+  },
 }
 
 export default mutations

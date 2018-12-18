@@ -4,6 +4,9 @@
       <div class="board">
         <div class="board-header">
           <span class="board-title">{{board.title}}</span>
+          <a class="board-header-btn show-menu" href="" @click.prevent="onShowSettings">
+            ... Show Menu
+          </a>
         </div>
         <div class="list-section-wrapper">
           <div class="list-section">
@@ -14,6 +17,7 @@
         </div>
       </div>
     </div>
+    <BoardSettings v-if="isShowBoardSettings"/>
     <router-view></router-view>
   </div>
 </template>
@@ -22,10 +26,12 @@
   import { mapMutations, mapState, mapActions } from 'vuex'
   import List from './List'
   import dragger from '../utils/dragger'
+  import BoardSettings from './BoardSettings'
 
   export default {
     components: {
       List,
+      BoardSettings,
     },
     data () {
       return {
@@ -38,6 +44,7 @@
       this.fetchData().then(() => {
         this.SET_THEME(this.board.bgColor)
       })
+      this.SET_IS_SHOW_BOARD_MENU(false)
     },
     updated () {
       this.setCardDragable()
@@ -45,11 +52,13 @@
     computed: {
       ...mapState({
         board: 'board',
+        isShowBoardSettings: 'isShowBoardSettings',
       }),
     },
     methods: {
       ...mapMutations([
         'SET_THEME',
+        'SET_IS_SHOW_BOARD_MENU',
       ]),
       ...mapActions([
         'FETCH_BOARD',
@@ -80,6 +89,9 @@
           else if (next && prev) targetCard.pos = (prev.pos + next.pos) / 2
           this.UPDATE_CARD(targetCard)
         })
+      },
+      onShowSettings () {
+        this.SET_IS_SHOW_BOARD_MENU(true)
       },
     },
     name: 'Board',
