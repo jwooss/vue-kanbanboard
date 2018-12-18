@@ -14,6 +14,13 @@ const actions = {
       commit('SET_BOARD', data.item)
     })
   },
+  DELETE_BOARD (_, { id }) {
+    return api.board.destroy(id)
+  },
+  UPDATE_BOARD ({ dispatch, state }, { id, title, bgColor }) {
+    return api.board.update(id, { title, bgColor })
+      .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
+  },
   LOGIN ({ commit }, { email, password }) {
     return api.auth.login(email, password)
       .then(({ accessToken }) => commit('LOGIN', accessToken))
@@ -26,9 +33,6 @@ const actions = {
     return api.card.fetch(id).then(data => {
       commit('SET_CARD', data.item)
     })
-  },
-  DELETE_BOARD (_, { id }) {
-    return api.board.destroy(id)
   },
   UPDATE_CARD ({ state, dispatch }, { id, pos, title, description, listId }) {
     return api.card.update(id, { pos, title, description, listId })
