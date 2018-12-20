@@ -11,7 +11,7 @@
     </div>
     <div v-else>
       <a class="add-card-btn" href="" @click.prevent="isAddCard=true">
-        &plus; Add a card..
+        &plus; Add another card
       </a>
     </div>
   </div>
@@ -73,7 +73,7 @@
 
   .card-list {
     flex: 1 1 auto;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
   }
 
   .empty-card-item {

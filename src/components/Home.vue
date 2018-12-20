@@ -10,7 +10,7 @@
       </div>
       <div class="board-item board-item-new">
         <a class="new-board-btn" href="" @click.prevent="SET_IS_ADD_BOARD(true)">
-          Create new board...
+          Create Board...
         </a>
       </div>
     </div>

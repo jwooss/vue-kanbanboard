@@ -1,7 +1,7 @@
 <template>
   <nav class="header">
     <div class="header-logo">
-      <router-link to="/">Home</router-link>
+      <router-link to="/">Simple Trello</router-link>
     </div>
     <div class="header-auth">
       <a href="" v-if="isAuth" @click.prevent="logout">Logout</a>
@@ -70,7 +70,7 @@
     position: absolute;
     left: 50%;
     top: 7px;
-    margin-left: -30px;
+    margin-left: -60px;
     text-align: center;
     font-weight: bolder;
     font-size: 24px;
