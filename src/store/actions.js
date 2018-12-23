@@ -17,6 +17,10 @@ const actions = {
   DELETE_BOARD (_, { id }) {
     return api.board.destroy(id)
   },
+  ADD_LIST ({ dispatch, state }, { title, boardId, pos }) {
+    return api.list.create({ title, boardId, pos })
+      .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
+  },
   UPDATE_BOARD ({ dispatch, state }, { id, title, bgColor }) {
     return api.board.update(id, { title, bgColor })
       .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
