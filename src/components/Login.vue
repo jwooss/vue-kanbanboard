@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapMutations } from 'vuex'
 
   export default {
     data () {
@@ -36,19 +36,25 @@
     },
     created () {
       this.rPath = this.$route.query.rPath || '/'
+      this.SET_THEME()
     },
     mounted () {
     },
     methods: {
+      ...mapMutations([
+        'SET_THEME',
+      ]),
       ...mapActions([
         'LOGIN',
+        'SET_THEME',
       ]),
       onSubmit () {
         this.LOGIN({ email: this.email, password: this.password })
-          .then(data => {
+          .then(_ => {
             this.$router.push(this.rPath)
           })
           .catch(err => {
+            debugger
             this.error = err.response.data.error
           })
       },
