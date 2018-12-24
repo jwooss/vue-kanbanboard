@@ -26,6 +26,10 @@ const actions = {
     return api.list.update(id, { pos, title })
       .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
   },
+  DELETE_LIST ({ dispatch, state }, { id }) {
+    return api.list.destroy(id)
+      .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
+  },
   UPDATE_BOARD ({ dispatch, state }, { id, title, bgColor }) {
     return api.board.update(id, { title, bgColor })
       .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
@@ -45,11 +49,11 @@ const actions = {
   },
   UPDATE_CARD ({ state, dispatch }, { id, pos, title, description, listId }) {
     return api.card.update(id, { pos, title, description, listId })
-      .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
+      .then(_ => dispatch('FETCH_BOARD', { id: state.board.id }))
   },
   DELETE_CARD ({ state, dispatch }, { id }) {
     return api.card.destroy(id)
-      .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
+      .then(_ => dispatch('FETCH_BOARD', { id: state.board.id }))
   },
 }
 
