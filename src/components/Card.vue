@@ -2,15 +2,18 @@
   <modal class="modal-card">
     <div slot="header" class="modal-card-header">
       <div class="modal-card-header-title">
-        <input class="form-control" type="text" :value="card.title" readonly>
+        <input class="form-control" type="text" :value="card.title" :readonly="!toggleTitle"
+               @click.prevent="toggleTitle=!toggleTitle" @blur="onBlurTitle"
+               ref="inputTitle">
       </div>
-      <a class="modal-close-btn" href="" @click.prevent="onClose">&times;</a>
+      <a class="modal-close-btn" href="" @click.prevent="onClickClose">&times;</a>
     </div>
     <div slot="body">
       <h3>Description</h3>
-      <textarea  class="form-control" cols="30" rows="3" placeholder="Add a more detailed description..."
-                 readonly
-                 v-model="card.description"></textarea>
+      <textarea class="form-control" cols="30" rows="3" placeholder="Add a more detailed description..."
+                :readonly="!toggleDesc"
+                @click.prevent="toggleDesc=!toggleDesc" @blur="onBlurInputDesc"
+                ref="inputDesc" v-model="card.description"></textarea>
     </div>
     <div slot="footer"></div>
   </modal>
@@ -24,6 +27,9 @@
     components: {
       Modal,
     },
+    created () {
+      this.FETCH_CARD(this.$route.params.cid)
+    },
     computed: {
       ...mapState({
         card: 'card',
@@ -33,9 +39,22 @@
     methods: {
       ...mapActions([
         'FETCH_CARD',
+        'UPDATE_CARD',
       ]),
-      onClose () {
+      onClickClose () {
         this.$router.push(`/b/${this.board.id}`)
+      },
+      onBlurTitle () {
+        this.toggleTitle = !this.toggleTitle
+        const title = this.$refs.inputTitle.value.trim()
+        if (!title) return
+        this.UPDATE_CARD({ id: this.card.id, title })
+      },
+      onBlurInputDesc () {
+        this.toggleDesc = !this.toggleDesc
+        const description = this.$refs.inputDesc.value.trim()
+        if (!description) return
+        this.UPDATE_CARD({ id: this.card.id, description })
       },
     },
   }
