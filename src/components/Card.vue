@@ -30,6 +30,12 @@
     created () {
       this.FETCH_CARD(this.$route.params.cid)
     },
+    data () {
+      return {
+        toggleTitle: false,
+        toggleDesc: false,
+      }
+    },
     computed: {
       ...mapState({
         card: 'card',

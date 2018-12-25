@@ -71,20 +71,17 @@
     transition: all .3s;
 
   }
-
   .board-menu-header {
     height: 46px;
     padding: 0 6px 0 12px;
     border-bottom: #bbb solid 1px;
   }
-
   .header-title {
     font-size: 18px;
     text-align: center;
     line-height: 46px;
-    font-weight: 700;
+    font-weight:700;
   }
-
   .header-close-btn {
     position: absolute;
     top: 10px;
@@ -94,12 +91,10 @@
     color: #999;
 
   }
-
   .menu-list {
     list-style: none;
     padding-left: 0px;
   }
-
   .menu-list li {
     height: 18px;
     line-height: 18px;
@@ -112,29 +107,24 @@
     margin-bottom: 5px;
     cursor: pointer;
   }
-
   .menu-list li:hover,
   .menu-list li:focus {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0,0,0, .1);
 
   }
-
   .menu-list li a {
     text-decoration: none;
     color: inherit;
   }
-
   .color-picker {
     margin: 0 15px;
   }
-
   .color-picker a {
     display: inline-block;
     width: 49%;
     height: 100px;
     border-radius: 8px;
   }
-
   .color-picker a:hover,
   .color-picker a:focus {
     /* cursor: pointer; */

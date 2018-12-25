@@ -42,8 +42,9 @@ const actions = {
     return api.card.create(title, listId, pos)
       .then(() => dispatch('FETCH_BOARD', { id: state.board.id }))
   },
-  FETCH_CARD ({ commit }, { id }) {
+  FETCH_CARD ({ commit }, id) {
     return api.card.fetch(id).then(data => {
+      console.log(data.item)
       commit('SET_CARD', data.item)
     })
   },

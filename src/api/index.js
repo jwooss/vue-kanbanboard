@@ -39,7 +39,10 @@ export const auth = {
 
 export const board = {
   fetch (id) {
-    return id ? request.get(`/boards/${id}`) : request.get('/boards')
+    if (id) {
+      return request.get(`/boards/${id}`).then(({ data }) => data)
+    }
+    return request.get('/boards').then(({ data }) => data)
   },
   create (title) {
     return request.post('/boards', { title })
@@ -69,7 +72,7 @@ export const card = {
     return request.post('/cards', { title, listId, pos })
   },
   fetch (id) {
-    return request.get(`/cards/${id}`)
+    return request.get(`/cards/${id}`).then(({ data }) => data)
   },
   update (id, data) {
     return request.put(`/cards/${id}`, data).then(({ data }) => data)

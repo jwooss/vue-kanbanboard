@@ -54,7 +54,6 @@
             this.$router.push(this.rPath)
           })
           .catch(err => {
-            debugger
             this.error = err.response.data.error
           })
       },
