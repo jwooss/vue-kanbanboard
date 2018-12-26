@@ -20,7 +20,7 @@
 
 <script>
   import AddBoard from './AddBoard'
-  import { mapState, mapMutations, mapActions } from 'vuex'
+  import { mapActions, mapMutations, mapState } from 'vuex'
 
   export default {
     components: {

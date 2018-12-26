@@ -28,7 +28,7 @@
 </template>
 
 <script>
-  import { mapMutations, mapState, mapActions } from 'vuex'
+  import { mapActions, mapMutations, mapState } from 'vuex'
   import List from './List'
   import AddList from './AddList'
   import dragger from '../utils/dragger'
